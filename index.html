@@ -482,13 +482,44 @@
         
         /* Responsive design */
         @media (max-width: 768px) {
+            .proposal {
+                margin: 0;
+                box-shadow: none;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .headline {
+                font-size: 1.75rem;
+                text-align: center;
+            }
+            
+            .subheadline {
+                text-align: center;
+                font-size: 1rem;
+            }
+            
             .feature-grid, .screenshot-grid, .two-column {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
             .comparison-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+                text-align: center;
             }
             
             .contact-info {
@@ -498,6 +529,119 @@
             
             .pricing-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .hero-screenshot img {
+                border-radius: 8px;
+            }
+            
+            /* Executive Summary Mobile Fix */
+            .content > .section:first-child > div > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            
+            /* Pricing breakdown mobile fix */
+            .pricing-section div[style*="grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+            
+            .pricing-section div[style*="grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: 1.5rem;
+            }
+            
+            /* CTA mobile fix */
+            .cta-section div[style*="grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+            
+            .cta-section div[style*="grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: 1rem;
+            }
+            
+            /* Workflow section mobile fix */
+            .section div[style*="grid-template-columns: 1fr 1fr; gap: 1.5rem"] {
+                display: block !important;
+            }
+            
+            .section div[style*="grid-template-columns: 1fr 1fr; gap: 1.5rem"] > div {
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Text sizes for mobile */
+            .vs-value {
+                font-size: 1.25rem;
+            }
+            
+            .savings-amount {
+                font-size: 1.5rem;
+            }
+            
+            .price {
+                font-size: 1.25rem;
+            }
+            
+            .cta-title {
+                font-size: 1.25rem;
+            }
+            
+            /* Footer mobile */
+            .footer {
+                position: relative;
+                margin-top: 2rem;
+                padding: 1rem;
+                font-size: 0.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem 0.75rem;
+            }
+            
+            .content {
+                padding: 0.75rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .headline {
+                font-size: 1.5rem;
+            }
+            
+            .subheadline {
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 0.75rem;
+            }
+            
+            .section-title {
+                font-size: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.25rem;
+            }
+            
+            .feature-item, .tech-specs {
+                padding: 0.75rem;
+            }
+            
+            .screenshot-caption {
+                font-size: 0.8rem;
             }
         }
     </style>
