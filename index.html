@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnityCore - Enterprise Operations Platform Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.4;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+        
+        .proposal {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            min-height: 11in;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+        }
+        
+        .proposal-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .headline {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        
+        .subheadline {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #dc2626;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #dc2626;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #dc2626;
+        }
+        
+        .feature-item h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #dc2626;
+        }
+        
+        .feature-item p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .screenshot-section {
+            margin: 2rem 0;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .screenshot-item {
+            text-align: center;
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .screenshot-caption {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-screenshot {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .hero-screenshot img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 2px solid #dc2626;
+        }
+        
+        .comparison {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+        
+        .vs-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .vs-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vs-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .vs-zipline {
+            color: #fca5a5;
+        }
+        
+        .vs-unity {
+            color: #86efac;
+        }
+        
+        .savings-highlight {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .savings-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .pricing-card.featured {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #fef2f2 0%, #white 100%);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #dc2626;
+        }
+        
+        .price-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            left: 2rem;
+            right: 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }
+        
+        /* Click to expand functionality */
+        .expandable-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .expandable-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: #dc2626;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: translateY(-50%) scale(0.1); }
+            to { transform: translateY(-50%) scale(1); }
+        }
+        
+        .tech-specs {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .tech-specs h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal">
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">🏛️ UnityCore</div>
+                <div class="proposal-tag">ENTERPRISE PROPOSAL</div>
+            </div>
+            <h1 class="headline">Transform DashMart Operations</h1>
+            <p class="subheadline">Next-generation retail management platform with real-time communication, AI insights & comprehensive task management</p>
+        </div>
+        
+        <div class="content">
+            <!-- Hero Screenshot -->
+            <div class="hero-screenshot">
+                <img src="dashboard.png" alt="UnityCore Dashboard" class="expandable-image" onclick="openModal(this)">
+                <div class="screenshot-caption"><strong>Professional Dashboard</strong> - Real-time analytics, task management, and business intelligence</div>
+            </div>
+
+            <!-- Platform Overview -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    Why UnityCore Outperforms Current Solutions
+                </h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>🚀 Real-Time Chat & Messaging</h4>
+                        <p>Slack-level communication with file sharing, @mentions, reactions, and instant problem resolution</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🤖 AI-Powered Business Intelligence</h4>
+                        <p>Predictive analytics, performance optimization, and automated recommendations from operational data</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📋 Advanced Task Management</h4>
+                        <p>Role-based assignments, priority tracking, and collaborative workflows with visual progress indicators</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📅 Integrated Scheduling</h4>
+                        <p>Shift management, meeting coordination, and automated notifications for seamless operations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots Grid -->
+            <div class="screenshot-section">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #374151; font-weight: 700;">Core Platform Features</h3>
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="chat.png" alt="Chat Interface" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Real-time messaging with file sharing and team coordination</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="tasks.png" alt="Task Management" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Comprehensive task tracking with role-based assignments</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="ai-insights.png" alt="AI Insights" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">AI-powered analytics with predictive recommendations</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="calendar.png" alt="Calendar System" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Integrated shift management and event coordination</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrative Control Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Administrative Dashboard & Control
+                </h2>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="admin-dashboard.png" alt="Administrative Dashboard" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 2px solid #dc2626;">
+                    <div class="screenshot-caption" style="margin-top: 1rem;"><strong>Enterprise Command Center</strong><br>Real-time system metrics, user management, and comprehensive operational analytics</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1rem; border-radius: 8px; border: 1px solid #f59e0b;">
+                    <p style="color: #92400e; font-weight: 600; margin-bottom: 0.5rem;">🎯 Executive-Level Insights</p>
+                    <p style="color: #b45309; font-size: 0.875rem;">Complete visibility into user activity, system performance, and operational efficiency - everything leadership needs for data-driven decisions</p>
+                </div>
+            </div>
+
+            <!-- Platform Workflow Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Complete Platform Workflow
+                </h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <img src="login.png" alt="Secure Login" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb;">
+                        <div class="screenshot-caption" style="margin-top: 0.75rem;"><strong>Secure Authentication</strong><br>Google SSO with enterprise-grade security</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="task-detail.png" alt="Task Detail View" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb;">
+                        <div class="screenshot-caption" style="margin-top: 0.75rem;"><strong>Detailed Task Management</strong><br>Comments, attachments, and collaborative workflows</div>
+                    </div>
+                </div>
+                <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1rem; border-radius: 8px; margin-top: 1.5rem; text-align: center; border: 1px solid #0ea5e9;">
+                    <p style="color: #0c4a6e; font-weight: 600; margin-bottom: 0.5rem;">End-to-End User Experience</p>
+                    <p style="color: #075985; font-size: 0.875rem;">From secure login to detailed task management - every interaction is optimized for retail operations efficiency</p>
+                </div>
+            </div>
+
+            <!-- Technical Specifications -->
+            <div class="two-column">
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Enterprise Features
+                    </h2>
+                    <div class="tech-specs">
+                        <h4>🔐 Security & Authentication</h4>
+                        <p>Google SSO, role-based permissions, Firebase security rules</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>⚡ Performance & Scalability</h4>
+                        <p>Cloud-native architecture, real-time sync, Docker deployment</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>📊 Analytics & Reporting</h4>
+                        <p>Interactive charts, performance metrics, cost optimization insights</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>🔄 Integration Ready</h4>
+                        <p>API-first design, webhook support, third-party compatibility</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Built for DashMart
+                    </h2>
+                    <div class="tech-specs">
+                        <h4>🏪 Retail-Specific Workflows</h4>
+                        <p>Inventory tasks, shift management, store coordination</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>👥 Role-Based Access</h4>
+                        <p>Site Manager, Shift Lead, Operations Associate permissions</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>📱 Modern UX Design</h4>
+                        <p>Intuitive interface, minimal training required, mobile-responsive</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>💬 Team Communication</h4>
+                        <p>Channel-based messaging, direct messages, file sharing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Advantage -->
+            <div class="comparison">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Cost Savings Analysis
+                </h2>
+                <div class="comparison-grid">
+                    <div class="vs-item">
+                        <div class="vs-title">Current Platform</div>
+                        <div class="vs-value vs-zipline">$600K+</div>
+                        <div style="font-size: 0.875rem; margin-top: 0.25rem;">Annual licensing & implementation</div>
+                    </div>
+                    <div class="vs-item">
+                        <div style="font-size: 2rem;">⚡</div>
+                        <div style="font-weight: 600;">VS</div>
+                    </div>
+                    <div class="vs-item">
+                        <div class="vs-title">UnityCore Solution</div>
+                        <div class="vs-value vs-unity">$290K</div>
+                        <div style="font-size: 0.875rem; margin-top: 0.25rem;">Including implementation</div>
+                    </div>
+                </div>
+                
+                <div class="savings-highlight">
+                    <div class="savings-amount">$310K+</div>
+                    <div>Annual savings with superior functionality and AI capabilities</div>
+                </div>
+            </div>
+
+            <!-- Investment Structure -->
+            <div class="pricing-section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Investment & Implementation
+                </h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="price">$200</div>
+                        <div class="price-label">Per store/month<br>Year 1</div>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="price">$250</div>
+                        <div class="price-label">Per store/month<br>Years 2-3</div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="price">$50K</div>
+                        <div class="price-label">Implementation<br>One-time</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #6b7280;">
+                    <strong>100+ stores • 3-year contract • Flat rate regardless of user count</strong><br>
+                    Includes: Data migration, training, 30-day go-live support, AI integration
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Modernize DashMart Operations?</h2>
+                    <p>Schedule a personalized demo and see UnityCore in action.<br>Implementation can begin as early as Q1 2026.</p>
+                    <div class="contact-info">
+                        <div>📧 contact@unitycore.app</div>
+                        <div>🌐 https://unitycore.app</div>
+                        <div>📞 Available for immediate consultation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div><strong>UnityCore</strong> - Next-Generation Enterprise Operations Platform | Powered by Firebase & Google Cloud</div>
+        </div>
+        
+        <!-- Image Modal -->
+        <div id="imageModal" class="image-modal" onclick="closeModal()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+        
+        <script>
+            function openModal(img) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                
+                // Prevent scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeModal() {
+                const modal = document.getElementById('imageModal');
+                modal.style.display = 'none';
+                
+                // Restore scrolling
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
